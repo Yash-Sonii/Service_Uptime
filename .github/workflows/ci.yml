@@ -17,7 +17,7 @@ jobs:
         run: docker build -t uptime-monitor:latest .
 
       - name: Run container
-        run: docker run -d -p 5000:8089 --name uptime-monitor uptime-monitor:latest
+        run: docker run -d -p 8089:8089 --name uptime-monitor uptime-monitor:latest
 
       - name: Wait for app to start
         run: sleep 5
