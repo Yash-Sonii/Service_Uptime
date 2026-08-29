@@ -17,13 +17,13 @@ jobs:
         run: docker build -t uptime-monitor:latest .
 
       - name: Run container
-        run: docker run -d -p 5000:5000 --name uptime-monitor uptime-monitor:latest
+        run: docker run -d -p 5000:8089 --name uptime-monitor uptime-monitor:latest
 
       - name: Wait for app to start
         run: sleep 5
 
       - name: Check /health endpoint
-        run: curl --fail http://localhost:5000/health
+        run: curl --fail http://localhost:8089/health
 
       - name: Stop container
         if: always()
